@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import HomeScreen from "./src/screens/HomeScreen";
+import StoryScreen from "./src/screens/StoryScreen";
 import {
   SafeAreaView,
   SafeAreaProvider,
@@ -10,7 +10,8 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <SafeAreaView>
-        <HomeScreen/>
+        {/* <HomeScreen/> */}
+        <StoryScreen />
       </SafeAreaView>
     </SafeAreaProvider>
   );
