@@ -1,26 +1,22 @@
-import { UseState } from 'expo-status-bar';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
-import HomeScreen from './src/screens/HomeScreen';
+import { StyleSheet, View} from "react-native";
 import Profile from './src/screens/ProfileScreen';
-import { SafeAreaView } from 'react-native';
 
-export default function App() {
+const App = () => {
   return (
-    // <SafeAreaView>
     <View style={styles.container}>
-      <View>
-        <Profile />
-      </View>
+      <Profile />
     </View>
-    // {/* </SafeAreaView> */}
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'powderblue',
+    backgroundColor: 'grey',
     alignItems: 'center',
-    
+    // justifyContent: 'center',
+    paddingTop: 70,
   },
 });
+
+export default App;

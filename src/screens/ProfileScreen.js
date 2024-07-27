@@ -1,47 +1,70 @@
-import { StyleSheet } from 'react-native';
-import { View, Text, } from 'react-native';
-import React from 'react'
-import { SafeAreaView } from 'react-native';
-import { ScrollView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, TextInput } from 'react-native';
+import React from 'react';
+
 
 export default function Profile() {
   return(
     <View style={styles.profile}>
-      <Text>Your Profile</Text>
-      <View style={styles.circle}></View>
-    </View>
-  )
-}
-
-const ProfileScreen = () => {
-  return (
-    <SafeAreaView>
-      <ScrollView>
-    <View style={styles.profile}>
       <Text style={styles.title}>Your Profile</Text>
-      <View style={styles.circle}>
-      </View>
+      <View style={styles.circle}></View>
+
+      <Text style={styles.text}>Your Username:</Text>
+      <TextInput 
+        style={styles.textinput} 
+        placeholder='Username...'
+      />
+
+      <Text style={styles.text}>Your Email-id:</Text>
+      <TextInput 
+        style={styles.textinput} 
+        placeholder='abcd@gmail.com'
+      />
+
+      <Text style={styles.text}>Your password:</Text>
+      <TextInput 
+        style={styles.textinput} 
+        placeholder='password...'
+      />
+
     </View>
-    </ScrollView>
-    </SafeAreaView>
   )
 }
 
-const styles= StyleSheet.create({
+const styles = StyleSheet.create({
   profile: {
-    height: 40,
-    width: 50,
+    height: 100,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop:'50%',
   },
-  circle:{
-    height: 20,
-    width: 10,
-    borderRadius: 50,
-    color: 'coral'
+  circle: {
+    height: 150,
+    width: 150,
+    borderRadius: 75,
+    backgroundColor: 'yellow',
+    borderColor: 'black',
+    borderWidth: 2,
+    margin: 20
   },
-  title:{
+  title: {
     textAlign: 'center',
-    color: 'pink',
+    color: 'powderblue',
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 50,
+  },
+  textinput: {
+    borderWidth: 2,
+    borderColor: 'white',
+    borderStyle: 'dashed',
+    backgroundColor: 'coral',
+    padding: 10,
+    borderRadius: 10,
+  },
+  text: {
+    margin: 10,
+    color: 'skyblue',
+    fontSize: 30,
+    fontWeight: 'bold',
   }
-})
+});
