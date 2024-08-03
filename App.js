@@ -1,20 +1,31 @@
-import { StyleSheet, View} from "react-native";
-import Profile from './src/screens/ProfileScreen';
+import { StyleSheet, Text, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import Profile from "./src/screens/ProfileScreen";
+import StoryScreen from "./src/screens/StoryScreen";
+import {
+  SafeAreaView,
+  SafeAreaProvider,
+} from "react-native-safe-area-context";
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Profile />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <View style={styles.container}>
+          <Profile />
+          <StoryScreen />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'grey',
+    backgroundColor: 'grey', // or "#fff"
     alignItems: 'center',
-    // justifyContent: 'center',
+    justifyContent: 'center',
     paddingTop: 70,
   },
 });
