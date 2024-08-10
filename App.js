@@ -10,7 +10,7 @@ import {
 const App = () => {
   return (
     <SafeAreaProvider>
-      <SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
           {/* <Profile /> */}
           <StoryScreen />
@@ -23,10 +23,10 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'grey', // or "#fff"
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 70,
+    // backgroundColor: 'grey', // or "#fff"
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // paddingTop: 70,
   },
 });
 
