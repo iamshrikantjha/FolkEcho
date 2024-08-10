@@ -8,7 +8,6 @@ const StoryScreen = () => {
       {/* IMAGE */}
       <View style={styles.coverImage}>
         <Image
-          source={{ uri: `https://i.pinimg.com/originals/80/ae/d6/80aed6c86034b5cbbd5bcb2502ea5acc.jpg` }}
           style={styles.coverImage}
         />
       </View>

@@ -12,7 +12,7 @@ const App = () => {
     <SafeAreaProvider>
       <SafeAreaView>
         <View style={styles.container}>
-          <Profile />
+          {/* <Profile /> */}
           <StoryScreen />
         </View>
       </SafeAreaView>
