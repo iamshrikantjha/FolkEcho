@@ -5,13 +5,15 @@ import {
   SafeAreaView,
   SafeAreaProvider,
 } from "react-native-safe-area-context";
+import SignInScreen from "./src/screens/SignInScreen";
 
 export default function App() {
   return (
     <SafeAreaProvider>
       <SafeAreaView>
         {/* <HomeScreen/> */}
-        <StoryScreen />
+        <SignInScreen />
+        {/* <StoryScreen /> */}
       </SafeAreaView>
     </SafeAreaProvider>
   );
