@@ -12,8 +12,8 @@ export default function App() {
     <SafeAreaProvider>
       <SafeAreaView>
         {/* <HomeScreen/> */}
-        <SignInScreen />
-        {/* <StoryScreen /> */}
+        {/* <SignInScreen /> */}
+        <StoryScreen />
       </SafeAreaView>
     </SafeAreaProvider>
   );

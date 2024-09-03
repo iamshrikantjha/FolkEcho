@@ -1,11 +1,14 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { Appbar, Button, TextInput } from 'react-native-paper';
 import React, { useState } from 'react'
 
 const SignInScreen = () => {
   const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   return (
-    <View>
+    <View style={{
+      backgroundColor: 'navy',
+    }}>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => { }} />
         <Appbar.Content title="Sign In" />
@@ -14,19 +17,34 @@ const SignInScreen = () => {
       </Appbar.Header>
 
       <TextInput
+        style={styles.Text_Input}
         label="Email"
         value={username}
         onChangeText={text => setUsername(text)}
       />
 
+      <TextInput
+        style={styles.Text_Input}
+        label="Password"
+        value={password}
+        onChangeText={text => setPassword(text)}
+      />
 
-      <Button icon="camera" mode="contained" onPress={() => console.log('Pressed')}>
-        Press me
+
+      <Button style={styles.Text_Input}
+        icon="camera" mode="contained" onPress={() => console.log('Signed In')}>
+        Sign In
       </Button>
 
-      <Text>SignInScreen</Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  Text_Input: {
+    marginVertical: 15,
+    marginHorizontal: 20
+  },
+})
 
 export default SignInScreen
