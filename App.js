@@ -6,6 +6,8 @@ import {
   SafeAreaProvider,
 } from "react-native-safe-area-context";
 import SignInScreen from "./src/screens/SignInScreen";
+import ForgotPassword from "./src/screens/ForgotPassword";
+import StoriesScreen from "./src/screens/StoriesScreen";
 
 export default function App() {
   return (
@@ -13,7 +15,9 @@ export default function App() {
       <SafeAreaView>
         {/* <HomeScreen/> */}
         {/* <SignInScreen /> */}
-        <StoryScreen />
+        {/* <StoryScreen /> */}
+        {/* <ForgotPassword /> */}
+        <StoriesScreen />
       </SafeAreaView>
     </SafeAreaProvider>
   );

@@ -30,6 +30,13 @@ const SignInScreen = () => {
         onChangeText={text => setPassword(text)}
       />
 
+      <TextInput
+        style={styles.Text_Input}
+        label="Confirm Password"
+        value={password}
+        onChangeText={text => setPassword(text)}
+      />
+
 
       <Button style={styles.Text_Input}
         icon="camera" mode="contained" onPress={() => console.log('Signed In')}>

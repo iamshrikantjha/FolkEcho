@@ -17,6 +17,7 @@ const StoryScreen = () => {
         <Appbar.Content title="Story" />
         <Appbar.Action icon="calendar" onPress={() => { }} />
         <Appbar.Action icon="magnify" onPress={() => { }} />
+        <Appbar.Action icon="account-circle" onPress={() => { }} />
       </Appbar.Header>
       {/* IMAGE */}
       <View style={styles.coverImage}>
