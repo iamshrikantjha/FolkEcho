@@ -1,33 +1,35 @@
-import { StyleSheet, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import Profile from "./src/screens/ProfileScreen";
+import { StyleSheet, Text, View } from "react-native";
 import StoryScreen from "./src/screens/StoryScreen";
 import {
   SafeAreaView,
   SafeAreaProvider,
 } from "react-native-safe-area-context";
+import SignInScreen from "./src/screens/auth/SignInScreen";
+import ForgotPassword from "./src/screens/auth/ForgotPassword";
+import StoriesScreen from "./src/screens/StoriesScreen";
+import RegisterScreen from "./src/screens/auth/RegisterScreen";
 
-const App = () => {
+export default function App() {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
-        <View style={styles.container}>
-          {/* <Profile /> */}
-          <StoryScreen />
-        </View>
+      <SafeAreaView>
+        {/* <HomeScreen/> */}
+        {/* <SignInScreen /> */}
+        {/* <StoryScreen /> */}
+        {/* <ForgotPassword /> */}
+        <StoriesScreen />
+        {/* <RegisterScreen /> */}
       </SafeAreaView>
     </SafeAreaProvider>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: 'grey', // or "#fff"
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // paddingTop: 70,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
-
-export default App;
