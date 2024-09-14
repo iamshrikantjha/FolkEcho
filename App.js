@@ -5,9 +5,10 @@ import {
   SafeAreaView,
   SafeAreaProvider,
 } from "react-native-safe-area-context";
-import SignInScreen from "./src/screens/SignInScreen";
-import ForgotPassword from "./src/screens/ForgotPassword";
+import SignInScreen from "./src/screens/auth/SignInScreen";
+import ForgotPassword from "./src/screens/auth/ForgotPassword";
 import StoriesScreen from "./src/screens/StoriesScreen";
+import RegisterScreen from "./src/screens/auth/RegisterScreen";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         {/* <StoryScreen /> */}
         {/* <ForgotPassword /> */}
         <StoriesScreen />
+        {/* <RegisterScreen /> */}
       </SafeAreaView>
     </SafeAreaProvider>
   );

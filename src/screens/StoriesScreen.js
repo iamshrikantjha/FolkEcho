@@ -1,81 +1,82 @@
-import { View, Text, StyleSheet } from 'react-native';
-import { Appbar, Button, TextInput } from 'react-native-paper';
-import React from 'react';
+import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
+import { Appbar, Button, TextInput } from "react-native-paper";
+import React from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { ScrollView } from 'react-native-web';
+
+const StateCard = () => {
+  return (
+    <View
+      style={{
+        width: wp(50),
+        height: wp(50),
+        // backgroundColor: "skyblue",
+        padding: wp(3),
+      }}
+    >
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "white",
+          borderRadius: wp(3),
+          elevation: 8,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Image
+          style={{
+            // flex: 1,
+            width: wp(30),
+            height: wp(30),
+          }}
+          source={{
+            uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/2Uttar_pradesh_map_stub_with_district.svg/606px-2Uttar_pradesh_map_stub_with_district.svg.png",
+          }}
+        />
+      </View>
+    </View>
+  );
+};
 
 const StoriesScreen = () => {
   return (
-    // <ScrollView>
-    <View style={{
-      backgroundColor: 'powderblue',
-      width: wp(100),
-      height: hp(100),
-    }}>
-
-      <Appbar.Header style={{
-        backgroundColor: 'skyblue',
-        height: 50,
-      }}>
-        <Appbar.BackAction onPress={() => { }} />
-        <Appbar.Content title="Stories from different states of India" />
-        <Appbar.Action icon="account-circle" onPress={() => { }} />
-        <Appbar.Action icon="home" onPress={() => { }} />
+    <View
+      style={{
+        // flex: 1,
+        width: wp(100),
+        height: hp(100),
+        // backgroundColor: "pink",
+      }}
+    >
+      <Appbar.Header>
+        <Appbar.BackAction onPress={() => {}} />
+        <Appbar.Content title="Find Your State" />
+        <Appbar.Action icon="calendar" onPress={() => {}} />
+        <Appbar.Action icon="magnify" onPress={() => {}} />
       </Appbar.Header>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.textInput}
-          label="Search for a Story"
-        />
-        <Button
-          style={styles.button}
-          icon="magnify"
-          mode="contained"
-          onPress={() => console.log('Set New Password')}>
-          Search
-        </Button>
-      </View>
-
-      <View style={{
-        backgroundColor: 'purple',
-        width: wp(40),
-        height: hp(20),
-        margin: 40,
-        alignSelf: 'center',
-      }}>
-      </View>
-
-      <View style={{
-        backgroundColor: 'purple',
-        width: wp(40),
-        height: hp(20),
-        margin: 40,
-        alignSelf: 'center',
-      }}>
-      </View>
-
-      <View style={{
-        backgroundColor: 'purple',
-        width: wp(40),
-        height: hp(20),
-        margin: 40,
-        alignSelf: 'center',
-      }}>
-      </View>
-
+      <ScrollView
+        contentContainerStyle={{
+          // backgroundColor: "pink",
+          flexDirection: "row",
+          flexWrap: "wrap",
+        }}
+      >
+        <StateCard />
+        <StateCard />
+        <StateCard />
+        <StateCard />
+      </ScrollView>
     </View>
-    // </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: 20,
     marginHorizontal: 20,
   },

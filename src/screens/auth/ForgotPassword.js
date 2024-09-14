@@ -11,7 +11,7 @@ const ForgotPassword = () => {
     const [newpassword, setnewPassword] = useState('')
     return (
         <View style={{
-            backgroundColor: 'powderblue',
+            // backgroundColor: 'powderblue',
             height: hp(100),
             width: wp(100),
         }}>
@@ -39,19 +39,19 @@ const ForgotPassword = () => {
                 onChangeText={text => setUsername(text)}
             />
 
-            <TextInput
+            {/* <TextInput
                 style={styles.Text_Input}
                 label="New Password"
                 value={newpassword}
                 onChangeText={text => setnewPassword(text)}
-            />
+            /> */}
 
-            <TextInput
+            {/* <TextInput
                 style={styles.Text_Input}
                 label="Confirm New Password"
                 value={newpassword}
                 onChangeText={text => setnewPassword(text)}
-            />
+            /> */}
 
             <Button style={styles.Text_Input}
                 icon="backup-restore" mode="contained" onPress={() => console.log('Set New Password')}>
