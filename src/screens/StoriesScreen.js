@@ -57,6 +57,7 @@ const StoriesScreen = () => {
         <Appbar.Action icon="calendar" onPress={() => {}} />
         <Appbar.Action icon="magnify" onPress={() => {}} />
       </Appbar.Header>
+<<<<<<< Updated upstream
       <ScrollView
         contentContainerStyle={{
           // backgroundColor: "pink",
@@ -69,6 +70,50 @@ const StoriesScreen = () => {
         <StateCard />
         <StateCard />
       </ScrollView>
+=======
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          label="Search for a Story"
+        />
+        <Button
+          style={styles.button}
+          icon="magnify"
+          mode="contained"
+          onPress={() => console.log('Searched for story')}>
+          Search
+        </Button>
+      </View>
+
+      <View style={{
+        backgroundColor: 'purple',
+        width: wp(40),
+        height: hp(20),
+        margin: 40,
+        alignSelf: 'center',
+      }}>
+      </View>
+
+      <View style={{
+        backgroundColor: 'purple',
+        width: wp(40),
+        height: hp(20),
+        margin: 40,
+        alignSelf: 'center',
+      }}>
+      </View>
+
+      <View style={{
+        backgroundColor: 'purple',
+        width: wp(40),
+        height: hp(20),
+        margin: 40,
+        alignSelf: 'center',
+      }}>
+      </View>
+
+>>>>>>> Stashed changes
     </View>
   );
 };
