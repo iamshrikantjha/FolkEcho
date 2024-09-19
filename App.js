@@ -9,6 +9,7 @@ import SignInScreen from "./src/screens/auth/SignInScreen";
 import ForgotPassword from "./src/screens/auth/ForgotPassword";
 import StoriesScreen from "./src/screens/StoriesScreen";
 import RegisterScreen from "./src/screens/auth/RegisterScreen";
+import StateScreen from "./src/screens/StateScreen";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         {/* <ForgotPassword /> */}
         <StoriesScreen />
         {/* <RegisterScreen /> */}
+        {/* <StateScreen /> */}
       </SafeAreaView>
     </SafeAreaProvider>
   );
