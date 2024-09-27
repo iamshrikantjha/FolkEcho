@@ -9,10 +9,27 @@ import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "../screens/auth/LoginScreen";
 import RegisterScreen from "../screens/auth/RegisterScreen";
 import ForgotPassword from "../screens/auth/ForgotPassword";
+import StateScreen from "../screens/story/StateScreen";
+import StoriesScreen from "../screens/story/StoriesScreen";
+import StoryScreen from "../screens/story/StoryScreen";
 
 const Tab = createBottomTabNavigator();
 
 const Stack = createStackNavigator();
+
+const StoryStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="StateScreen" component={StateScreen} />
+      <Stack.Screen name="StoriesScreen" component={StoriesScreen} />
+      <Stack.Screen name="StoryScreen" component={StoryScreen} />
+    </Stack.Navigator>
+  );
+};
 
 const AuthStack = () => {
   return (
@@ -78,7 +95,7 @@ const PaperBottomTabs = () => {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={StoryStack}
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => {
