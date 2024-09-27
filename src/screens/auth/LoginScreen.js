@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import { Appbar, Button, TextInput } from 'react-native-paper';
 import React, { useState } from 'react'
 
-const SignInScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   return (
@@ -44,7 +44,7 @@ const SignInScreen = () => {
       </Button>
 
       <Button style={styles.Text_Input}
-        icon="camera" mode="contained" onPress={() => console.log('Signed In')}>
+        icon="camera" mode="contained" onPress={() => navigation.navigate("RegisterScreen")}>
         Register
       </Button>
 
@@ -59,4 +59,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default SignInScreen
+export default LoginScreen

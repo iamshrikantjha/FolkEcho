@@ -3,7 +3,7 @@ import { Appbar, Button, TextInput } from 'react-native-paper';
 import React, { useState } from 'react'
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-const RegisterScreen = () => {
+const RegisterScreen = ({ navigation }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   return (
@@ -45,7 +45,7 @@ const RegisterScreen = () => {
       </Button>
 
       <Button style={styles.Text_Input}
-        icon="bag-personal-outline" mode="contained" onPress={() => console.log('Signed In')}>
+        icon="bag-personal-outline" mode="contained" onPress={() => navigation.navigate("LoginScreen")}>
         Sign In
       </Button>
 

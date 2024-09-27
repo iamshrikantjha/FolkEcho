@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 
 import { CommonActions } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text, BottomNavigation } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { createStackNavigator } from "@react-navigation/stack";
+import LoginScreen from "../screens/auth/LoginScreen";
+import RegisterScreen from "../screens/auth/RegisterScreen";
+import ForgotPassword from "../screens/auth/ForgotPassword";
 
 const Tab = createBottomTabNavigator();
+
+const Stack = createStackNavigator();
+
+const AuthStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+      <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+    </Stack.Navigator>
+  );
+};
 
 const PaperBottomTabs = () => {
   return (
@@ -76,6 +96,26 @@ const PaperBottomTabs = () => {
           },
         }}
       />
+      <Tab.Screen
+        name="Bookmarks"
+        component={SettingsScreen}
+        options={{
+          tabBarLabel: "Bookmarks",
+          tabBarIcon: ({ color, size }) => {
+            return <Icon name="bookmark" size={size} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={SettingsScreen}
+        options={{
+          tabBarLabel: "Profile",
+          tabBarIcon: ({ color, size }) => {
+            return <Icon name="account-circle" size={size} color={color} />;
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 };
@@ -97,7 +137,8 @@ function SettingsScreen() {
 }
 
 const RootStack = () => {
-  return <PaperBottomTabs />;
+  const [auth, setAuth] = useState(true);
+  return auth === false ? <AuthStack /> : <PaperBottomTabs />;
 };
 
 const styles = StyleSheet.create({
@@ -108,5 +149,4 @@ const styles = StyleSheet.create({
   },
 });
 
-
-export default RootStack
+export default RootStack;
