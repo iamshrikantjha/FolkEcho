@@ -12,10 +12,12 @@ import StateScreen from "../screens/story/StateScreen";
 import StoriesScreen from "../screens/story/StoriesScreen";
 import StoryScreen from "../screens/story/StoryScreen";
 import ProfileScreen from "../screens/profile/ProfileScreen";
+import EditProfileScreen from "../screens/profile/EditProfileScreen";
 
 const Tab = createBottomTabNavigator();
 
 const Stack = createStackNavigator();
+
 
 const ProfileStack = () => {
   return (
@@ -24,11 +26,11 @@ const ProfileStack = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      {/* <Stack.Screen name="ProfileScreen" component={ProfileScreen} /> */}
+      <Stack.Screen name="EditProfileScreen" component={EditProfileScreen} />
     </Stack.Navigator>
   );
 };
-
 
 const StoryStack = () => {
   return (
@@ -110,17 +112,17 @@ const PaperBottomTabs = () => {
         name="Home"
         component={ProfileStack}
         options={{
-          tabBarLabel: "Home",
+          tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => {
             return <Icon name="home" size={size} color={color} />;
           },
         }}
       />
       <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
+        name="StoryScreen"
+        component={StoryStack}
         options={{
-          tabBarLabel: "Settings",
+          tabBarLabel: "Story",
           tabBarIcon: ({ color, size }) => {
             return <Icon name="cog" size={size} color={color} />;
           },
@@ -138,7 +140,7 @@ const PaperBottomTabs = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={SettingsScreen}
+        component={ProfileStack}
         options={{
           tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => {
@@ -146,18 +148,9 @@ const PaperBottomTabs = () => {
           },
         }}
       />
-
     </Tab.Navigator>
   );
 };
-
-function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <Text variant="headlineMedium">Home!</Text>
-    </View>
-  );
-}
 
 function SettingsScreen() {
   return (
