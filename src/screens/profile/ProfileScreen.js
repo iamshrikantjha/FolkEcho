@@ -1,11 +1,23 @@
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, TextInput } from 'react-native';
 import React from 'react';
+import { Appbar, Button, } from "react-native-paper";
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
-export default function Profile() {
+const ProfileScreen = () => {
   return(
+    <SafeAreaProvider>
+    <SafeAreaView>
+
+      <Appbar.Header>
+        <Appbar.BackAction onPress={() => {}} />
+        <Appbar.Content title="Your Profile" />
+        <Appbar.Action icon="pencil" onPress={() => {}} />
+        <Appbar.Action icon="magnify" onPress={() => {}} />
+      </Appbar.Header>
+
     <View style={styles.profile}>
-      <Text style={styles.title}>Your Profile</Text>
+      {/* <Text style={styles.title}>Your Profile</Text> */}
       <View style={styles.circle}></View>
 
       <Text style={styles.text}>Your Username:</Text>
@@ -27,6 +39,9 @@ export default function Profile() {
       />
 
     </View>
+    
+    </SafeAreaView>
+    </SafeAreaProvider>
   )
 }
 
@@ -68,3 +83,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   }
 });
+
+export default ProfileScreen;

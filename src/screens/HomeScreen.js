@@ -1,6 +1,5 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import React from 'react'
-import { colorPallet } from './../theme/colorPallet'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const HomeScreen = () => {

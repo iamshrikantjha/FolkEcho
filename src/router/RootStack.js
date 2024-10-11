@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
-
 import { CommonActions } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text, BottomNavigation } from "react-native-paper";
@@ -12,10 +11,24 @@ import ForgotPassword from "../screens/auth/ForgotPassword";
 import StateScreen from "../screens/story/StateScreen";
 import StoriesScreen from "../screens/story/StoriesScreen";
 import StoryScreen from "../screens/story/StoryScreen";
+import ProfileScreen from "../screens/profile/ProfileScreen";
 
 const Tab = createBottomTabNavigator();
 
 const Stack = createStackNavigator();
+
+const ProfileStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+    </Stack.Navigator>
+  );
+};
+
 
 const StoryStack = () => {
   return (
@@ -95,7 +108,7 @@ const PaperBottomTabs = () => {
     >
       <Tab.Screen
         name="Home"
-        component={StoryStack}
+        component={ProfileStack}
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => {
@@ -133,6 +146,7 @@ const PaperBottomTabs = () => {
           },
         }}
       />
+
     </Tab.Navigator>
   );
 };
