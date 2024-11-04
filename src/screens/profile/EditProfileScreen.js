@@ -106,30 +106,6 @@ const EditProfileScreen = () => {
 
         </View>
 
-
-
-
-        {/* <View style={styles.profile}> */}
-        {/* <Text style={styles.title}>Your Profile</Text> */}
-        {/* <View style={styles.circle}>
-            <TextInput
-              style={{
-                borderColor: "green",
-                borderWidth: 5,
-                alignSelf: "",
-              }}
-            ></TextInput>
-          </View> */}
-
-        {/* <Text style={styles.text}>Your Username:</Text>
-          <TextInput style={styles.textinput} placeholder="Username..." />
-
-          <Text style={styles.text}>Your Email-id:</Text>
-          <TextInput style={styles.textinput} placeholder="abcd@gmail.com" />
-
-          <Text style={styles.text}>Your password:</Text>
-          <TextInput style={styles.textinput} placeholder="password..." /> */}
-        {/* </View> */}
       </SafeAreaView>
     </SafeAreaProvider>
   );
