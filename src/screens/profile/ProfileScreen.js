@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
-    color: 'powderblue',
+    // color: 'powderblue',
     fontWeight: 'bold',
     fontSize: 50,
   },

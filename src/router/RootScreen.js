@@ -6,6 +6,8 @@ import { MD3DarkTheme, MD3LightTheme, PaperProvider } from "react-native-paper";
 import { SafeAreaView } from "react-native-web";
 import { darkTheme, lightTheme } from "../utils/colorPallet";
 import { useColorScheme } from "react-native";
+import StoriesScreen from "../screens/story/StoriesScreen";
+import StoryScreen from "../screens/story/StoryScreen";
 
 const RootScreen = () => {
   // const colorScheme = useColorScheme();
@@ -15,13 +17,11 @@ const RootScreen = () => {
 
   return (
     <SafeAreaProvider>
-      {/* <SafeAreaView style={{ flex: 1 }}> */}
       <PaperProvider theme={lightTheme}>
         <NavigationContainer>
           <RootStack />
         </NavigationContainer>
       </PaperProvider>
-      {/* </SafeAreaView> */}
     </SafeAreaProvider>
   );
 };

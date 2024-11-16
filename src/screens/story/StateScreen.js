@@ -5,15 +5,23 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import { useTheme } from 'react-native-paper';
+
 
 const StateCard = () => {
+  const navigation = useNavigation();
+  const theme = useTheme();
+
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => navigation.navigate('StoryScreen')}
       style={{
-        width: wp(100),
+        width: wp(50),
         height: wp(50),
-        backgroundColor: "skyblue",
         padding: wp(3),
+        backgroundColor: theme.colors.surface,
       }}
     >
       <View
@@ -24,6 +32,7 @@ const StateCard = () => {
           elevation: 8,
           justifyContent: "center",
           alignItems: "center",
+          gap: wp(2),
         }}
       >
         <Image
@@ -36,27 +45,27 @@ const StateCard = () => {
             uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/2Uttar_pradesh_map_stub_with_district.svg/606px-2Uttar_pradesh_map_stub_with_district.svg.png",
           }}
         />
+        <Text style={{
+          letterSpacing: wp(0.7),
+          textAlign: 'center',
+          flexWrap: 'wrap',
+        }}>UTTAR PRADESH</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
 const StateScreen = () => {
   return (
-    <View
-      style={{
-        // flex: 1,
-        width: wp(100),
-        height: hp(100),
-        // backgroundColor: "pink",
-      }}
-    >
+    <>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => {}} />
         <Appbar.Content title="Find Your State" />
         <Appbar.Action icon="calendar" onPress={() => {}} />
         <Appbar.Action icon="magnify" onPress={() => {}} />
       </Appbar.Header>
+
+
       <ScrollView
         contentContainerStyle={{
           // backgroundColor: "pink",
@@ -68,8 +77,15 @@ const StateScreen = () => {
         <StateCard />
         <StateCard />
         <StateCard />
+        <StateCard />
+        <StateCard />
+        <StateCard />
+        <StateCard /><StateCard />
+        <StateCard />
+        <StateCard />
+        <StateCard />
       </ScrollView>
-    </View>
+    </>
   );
 };
 

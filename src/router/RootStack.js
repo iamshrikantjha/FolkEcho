@@ -124,7 +124,7 @@ const PaperBottomTabs = () => {
         options={{
           tabBarLabel: "Story",
           tabBarIcon: ({ color, size }) => {
-            return <Icon name="cog" size={size} color={color} />;
+            return <Icon name="book" size={size} color={color} />;
           },
         }}
       />
