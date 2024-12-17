@@ -1,87 +1,86 @@
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, TextInput } from 'react-native';
 import React from 'react';
-import { Appbar, Button, } from "react-native-paper";
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-
+import { View, StyleSheet } from 'react-native';
+import { Avatar, Text, Card, Button, Appbar } from 'react-native-paper';
 
 const ProfileScreen = () => {
-  return(
-    <SafeAreaProvider>
-    <SafeAreaView>
+  return (
+    <View style={styles.container}>
+      <Appbar />
+      {/* Header Section */}
+      <View style={styles.header}>
+        <Avatar.Image 
+          size={100} 
+          source={{ uri: 'https://via.placeholder.com/100' }} // Replace with user's avatar URL
+        />
+        <Text style={styles.name}>John Doe</Text>
+        <Text style={styles.email}>johndoe@example.com</Text>
+      </View>
 
-      <Appbar.Header>
-        <Appbar.BackAction onPress={() => {}} />
-        <Appbar.Content title="Your Profile" />
-        <Appbar.Action icon="pencil" onPress={() => {}} />
-        <Appbar.Action icon="magnify" onPress={() => {}} />
-      </Appbar.Header>
+      {/* Details Section */}
+      <Card style={styles.card}>
+        <Card.Title title="Profile Information" />
+        <Card.Content>
+          <Text style={styles.infoLabel}>Name</Text>
+          <Text style={styles.infoText}>John Doe</Text>
+          <Text style={styles.infoLabel}>Email</Text>
+          <Text style={styles.infoText}>johndoe@example.com</Text>
+          <Text style={styles.infoLabel}>Phone</Text>
+          <Text style={styles.infoText}>+1 234 567 890</Text>
+          <Text style={styles.infoLabel}>Address</Text>
+          <Text style={styles.infoText}>1234 Elm Street, Springfield</Text>
+        </Card.Content>
+      </Card>
 
-    <View style={styles.profile}>
-      {/* <Text style={styles.title}>Your Profile</Text> */}
-      <View style={styles.circle}></View>
-
-      <Text style={styles.text}>Your Username:</Text>
-      <TextInput 
-        style={styles.textinput} 
-        placeholder='Username...'
-      />
-
-      <Text style={styles.text}>Your Email-id:</Text>
-      <TextInput 
-        style={styles.textinput} 
-        placeholder='abcd@gmail.com'
-      />
-
-      <Text style={styles.text}>Your password:</Text>
-      <TextInput 
-        style={styles.textinput} 
-        placeholder='password...'
-      />
-
+      {/* Edit Button */}
+      <Button 
+        mode="contained" 
+        style={styles.button} 
+        onPress={() => console.log('Edit Profile')}
+      >
+        Edit Profile
+      </Button>
     </View>
-    
-    </SafeAreaView>
-    </SafeAreaProvider>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-  profile: {
-    height: 100,
-    width: '100%',
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    padding: 20,
+  },
+  header: {
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop:'50%',
+    marginBottom: 20,
   },
-  circle: {
-    height: 150,
-    width: 150,
-    borderRadius: 75,
-    backgroundColor: 'yellow',
-    borderColor: 'black',
-    borderWidth: 2,
-    margin: 20
-  },
-  title: {
-    textAlign: 'center',
-    // color: 'powderblue',
+  name: {
+    fontSize: 24,
     fontWeight: 'bold',
-    fontSize: 50,
+    marginTop: 10,
   },
-  textinput: {
-    borderWidth: 2,
-    borderColor: 'white',
-    borderStyle: 'dashed',
-    backgroundColor: 'coral',
+  email: {
+    fontSize: 16,
+    color: 'gray',
+  },
+  card: {
+    marginBottom: 20,
+    backgroundColor: '#fff',
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 8,
+    elevation: 3,
   },
-  text: {
-    margin: 10,
-    color: 'skyblue',
-    fontSize: 30,
+  infoLabel: {
+    fontSize: 14,
     fontWeight: 'bold',
-  }
+    marginTop: 10,
+  },
+  infoText: {
+    fontSize: 16,
+    color: 'gray',
+  },
+  button: {
+    marginTop: 20,
+  },
 });
 
 export default ProfileScreen;

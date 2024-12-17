@@ -26,7 +26,7 @@ const ProfileStack = () => {
         headerShown: false,
       }}
     >
-      {/* <Stack.Screen name="ProfileScreen" component={ProfileScreen} /> */}
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
       <Stack.Screen name="EditProfileScreen" component={EditProfileScreen} />
     </Stack.Navigator>
   );
@@ -112,7 +112,7 @@ const PaperBottomTabs = () => {
         name="Home"
         component={ProfileStack}
         options={{
-          tabBarLabel: "Profile",
+          tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => {
             return <Icon name="home" size={size} color={color} />;
           },
