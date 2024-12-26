@@ -28,12 +28,12 @@ const RootScreen = () => {
         <NavigationContainer theme={theme}>
           <View style={{ flex: 1 }}>
             {/* Theme Toggle */}
-            <View style={{ alignItems: "center", margin: 10 }}>
+            {/* <View style={{ alignItems: "center", margin: 10 }}>
               <Text style={{ color: theme.colors.primary }}>
                 {isDarkMode ? "Dark Mode" : "Light Mode"}
               </Text>
               <Switch value={isDarkMode} onValueChange={toggleTheme} />
-            </View>
+            </View> */}
             {/* Main App Stack */}
             <RootStack />
           </View>
