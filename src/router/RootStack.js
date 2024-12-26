@@ -119,7 +119,7 @@ const PaperBottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="StoryScreen"
+        name="Tales"
         component={StoryStack}
         options={{
           tabBarLabel: "Story",

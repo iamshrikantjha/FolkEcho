@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
+import { View, StyleSheet, Image, ScrollView } from "react-native";
 import React, { useState } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { Appbar, Button, TextInput } from "react-native-paper";
+import { Appbar, Button, TextInput, Text } from "react-native-paper";
 
 const StoryScreen = () => {
   return (

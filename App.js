@@ -1,14 +1,9 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import RootScreen from './src/router/RootScreen'
+import { View, Text } from "react-native";
+import React from "react";
+import RootScreen from "./src/router/RootScreen";
 
 const App = () => {
-  return (
-      <RootScreen />
-      // <ProfileScreen />
-      // <HomeScreen />
-      // <EditProfile />
-  )
-}
+  return <RootScreen />;
+};
 
-export default App
+export default App;

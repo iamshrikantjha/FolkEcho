@@ -1,11 +1,10 @@
-import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Image, Pressable } from "react-native";
 import { Appbar, Button, TextInput } from "react-native-paper";
 import React from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from 'react-native-paper';
 
@@ -15,7 +14,7 @@ const StateCard = () => {
   const theme = useTheme();
 
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={() => navigation.navigate('StoryScreen')}
       style={{
         width: wp(50),
@@ -51,7 +50,7 @@ const StateCard = () => {
           flexWrap: 'wrap',
         }}>UTTAR PRADESH</Text>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
