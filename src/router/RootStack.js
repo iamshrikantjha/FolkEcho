@@ -108,7 +108,7 @@ const PaperBottomTabs = () => {
         />
       )}
     >
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Home"
         component={ProfileStack}
         options={{
@@ -117,7 +117,7 @@ const PaperBottomTabs = () => {
             return <Icon name="home" size={size} color={color} />;
           },
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Tales"
         component={StoryStack}
@@ -138,7 +138,7 @@ const PaperBottomTabs = () => {
           },
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Profile"
         component={ProfileStack}
         options={{
@@ -147,7 +147,7 @@ const PaperBottomTabs = () => {
             return <Icon name="account-circle" size={size} color={color} />;
           },
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

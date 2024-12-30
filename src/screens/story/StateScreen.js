@@ -1,21 +1,26 @@
 import { View, Text, StyleSheet, ScrollView, Image, Pressable } from "react-native";
 import { Appbar, Button, TextInput } from "react-native-paper";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from 'react-native-paper';
+import { fetchAllStates } from './../../config/firebaseConfig'
 
-
-const StateCard = () => {
+const StateCard = ({ item }) => {
   const navigation = useNavigation();
   const theme = useTheme();
 
+  const state_id = item.id;
+  const state_name = item.state_name;
+
   return (
     <Pressable
-      onPress={() => navigation.navigate('StoryScreen')}
+      onPress={() => navigation.navigate('StoriesScreen', {
+        state_id: state_id
+      })}
       style={{
         width: wp(50),
         height: wp(50),
@@ -48,20 +53,36 @@ const StateCard = () => {
           letterSpacing: wp(0.7),
           textAlign: 'center',
           flexWrap: 'wrap',
-        }}>UTTAR PRADESH</Text>
+          textTransform: 'uppercase'
+        }}>{state_name || 'N/A'}</Text>
       </View>
     </Pressable>
   );
 };
 
 const StateScreen = () => {
+  const [states, setStates] = useState([])
+  const navigation = useNavigation();
+  const theme = useTheme();
+
+  useEffect(() => {
+    fetchAllStates().then((data) => {
+      console.log(data);
+      setStates(data);
+    })
+
+    return () => {}
+  }, [])
+
+
+
   return (
     <>
       <Appbar.Header>
-        <Appbar.BackAction onPress={() => {}} />
+        <Appbar.BackAction onPress={() => { }} />
         <Appbar.Content title="Find Your State" />
-        <Appbar.Action icon="calendar" onPress={() => {}} />
-        <Appbar.Action icon="magnify" onPress={() => {}} />
+        <Appbar.Action icon="calendar" onPress={() => { }} />
+        <Appbar.Action icon="magnify" onPress={() => { }} />
       </Appbar.Header>
 
 
@@ -72,17 +93,18 @@ const StateScreen = () => {
           flexWrap: "wrap",
         }}
       >
-        <StateCard />
-        <StateCard />
-        <StateCard />
-        <StateCard />
-        <StateCard />
-        <StateCard />
-        <StateCard />
-        <StateCard /><StateCard />
-        <StateCard />
-        <StateCard />
-        <StateCard />
+        {
+          states.length === 0 ? (
+            <View>
+              <Text>DATA N/A</Text>
+            </View>
+          ): (
+            states.map((item, id) => {
+              return <StateCard key={id} item={item} />
+            })
+          )
+        }
+        {/* <StateCard /> */}
       </ScrollView>
     </>
   );
