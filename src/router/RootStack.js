@@ -122,7 +122,7 @@ const PaperBottomTabs = () => {
         name="Tales"
         component={StoryStack}
         options={{
-          tabBarLabel: "Story",
+          tabBarLabel: "Tales",
           tabBarIcon: ({ color, size }) => {
             return <Icon name="book" size={size} color={color} />;
           },
@@ -135,6 +135,16 @@ const PaperBottomTabs = () => {
           tabBarLabel: "Bookmarks",
           tabBarIcon: ({ color, size }) => {
             return <Icon name="bookmark" size={size} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Feedback"
+        component={SettingsScreen}
+        options={{
+          tabBarLabel: "Feedback",
+          tabBarIcon: ({ color, size }) => {
+            return <Icon name="comma-circle" size={size} color={color} />;
           },
         }}
       />
