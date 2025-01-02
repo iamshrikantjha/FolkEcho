@@ -14,6 +14,7 @@ import StoryScreen from "../screens/story/StoryScreen";
 import ProfileScreen from "../screens/profile/ProfileScreen";
 import EditProfileScreen from "../screens/profile/EditProfileScreen";
 import BookmarksScreen from "../screens/bookmarks/BookmarksScreen";
+import FeedbackScreen from "../screens/feedback/FeedbackScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -67,6 +68,7 @@ const PaperBottomTabs = () => {
       screenOptions={{
         headerShown: false,
       }}
+      initialRouteName="Feedback"
       tabBar={({ navigation, state, descriptors, insets }) => (
         <BottomNavigation.Bar
           navigationState={state}
@@ -141,7 +143,7 @@ const PaperBottomTabs = () => {
       />
       <Tab.Screen
         name="Feedback"
-        component={SettingsScreen}
+        component={FeedbackScreen}
         options={{
           tabBarLabel: "Feedback",
           tabBarIcon: ({ color, size }) => {

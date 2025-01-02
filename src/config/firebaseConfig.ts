@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, doc, getDoc, setDoc } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -91,8 +91,32 @@ const fetchStoryById = async (stateId, storyId) => {
 };
 
 
+const submitFeedback = async (title, body, senderName) => {
+  try {
+    if (!title || !body || !senderName) {
+      throw new Error('Title, body, and sender name are required');
+    }
+
+    // Create a new document in the 'feedbacks' collection with a unique ID
+    const feedbackRef = doc(db, 'feedbacks', new Date().toISOString()); // Use timestamp as document ID
+    await setDoc(feedbackRef, {
+      title: title,
+      body: body,
+      senderName: senderName,
+      createdAt: new Date().toISOString(),
+    });
+
+    console.log('Feedback submitted successfully');
+  } catch (error) {
+    console.error('Error submitting feedback:', error.message);
+    throw error;
+  }
+};
+
+
 export {
   fetchAllStates,
   fetchStoriesForState,
-  fetchStoryById
+  fetchStoryById,
+  submitFeedback
 }
