@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { MD3DarkTheme, MD3LightTheme, PaperProvider } from "react-native-paper";
 import { useColorScheme, Switch, View, Text } from "react-native";
 import { darkTheme, lightTheme } from "../utils/colorPallet";
+import { AudioPlayerProvider } from "../context/AudioPlayerContext";
 
 const RootScreen = () => {
   const colorScheme = useColorScheme(); // Get system theme preference
@@ -35,7 +36,9 @@ const RootScreen = () => {
               <Switch value={isDarkMode} onValueChange={toggleTheme} />
             </View> */}
             {/* Main App Stack */}
-            <RootStack />
+            <AudioPlayerProvider>
+              <RootStack />
+            </AudioPlayerProvider>
           </View>
         </NavigationContainer>
       </PaperProvider>

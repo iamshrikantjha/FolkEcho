@@ -6,6 +6,7 @@ import {
 } from "react-native-responsive-screen";
 import { Appbar, Button, TextInput, Text } from "react-native-paper";
 import { fetchStoryById } from "../../config/firebaseConfig";
+import AudioPlayer from "../../components/AudioPlayer";
 
 const StoryScreen = ({ route }) => {
   const { story_id, state_id } = route.params;
@@ -15,13 +16,15 @@ const StoryScreen = ({ route }) => {
 
   useEffect(() => {
     try {
-      fetchStoryById(state_id, story_id).then((data) => {
-        console.log('the data ', data.title);
-        setStory(data);
-        // setStates(data);
-      }).then(() => {
-        console.log(story);
-      });
+      fetchStoryById(state_id, story_id)
+        .then((data) => {
+          console.log("the data ", data.title);
+          setStory(data);
+          // setStates(data);
+        })
+        .then(() => {
+          console.log(story);
+        });
     } catch (error) {
       console.log(error);
     }
@@ -49,7 +52,9 @@ const StoryScreen = ({ route }) => {
         <View style={styles.coverImage}>
           <Image
             source={{
-              uri: story?.image || `https://i.pinimg.com/originals/80/ae/d6/80aed6c86934b5cbbd5bcb2502ea5acc.jpg`,
+              uri:
+                story?.image ||
+                `https://i.pinimg.com/originals/80/ae/d6/80aed6c86934b5cbbd5bcb2502ea5acc.jpg`,
             }}
             style={styles.coverImage}
           />
@@ -61,9 +66,15 @@ const StoryScreen = ({ route }) => {
               fontSize: 25,
             }}
           >
-            { story.title || 'N/A TITLE' }
+            {story.title || "N/A TITLE"}
           </Text>
         </View>
+
+        <AudioPlayer
+          uri={story.story_audio}
+          id={story.title} // Use the question ID to identify the audio
+          title={`${story.title} Audioplayer`} // Optional title
+        />
 
         {/* MAIN STORY TEXT */}
         <View>
@@ -74,9 +85,7 @@ const StoryScreen = ({ route }) => {
               textAlign: "center",
             }}
           >
-            {
-              story.body || 'N/A CONTENT'
-            }
+            {story.body || "N/A CONTENT"}
           </Text>
         </View>
       </ScrollView>
