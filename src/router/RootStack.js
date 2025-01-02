@@ -13,6 +13,7 @@ import StoriesScreen from "../screens/story/StoriesScreen";
 import StoryScreen from "../screens/story/StoryScreen";
 import ProfileScreen from "../screens/profile/ProfileScreen";
 import EditProfileScreen from "../screens/profile/EditProfileScreen";
+import BookmarksScreen from "../screens/bookmarks/BookmarksScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -130,7 +131,7 @@ const PaperBottomTabs = () => {
       />
       <Tab.Screen
         name="Bookmarks"
-        component={SettingsScreen}
+        component={BookmarksScreen}
         options={{
           tabBarLabel: "Bookmarks",
           tabBarIcon: ({ color, size }) => {

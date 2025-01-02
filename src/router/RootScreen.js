@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RootStack from "./RootStack";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { MD3DarkTheme, MD3LightTheme, PaperProvider } from "react-native-paper";
 import { useColorScheme, Switch, View, Text } from "react-native";
@@ -25,23 +25,25 @@ const RootScreen = () => {
 
   return (
     <SafeAreaProvider>
-      <PaperProvider theme={theme}>
-        <NavigationContainer theme={theme}>
-          <View style={{ flex: 1 }}>
-            {/* Theme Toggle */}
-            {/* <View style={{ alignItems: "center", margin: 10 }}>
+      <SafeAreaView style={{ flex: 1 }}>
+        <PaperProvider theme={theme}>
+          <NavigationContainer theme={theme}>
+            <View style={{ flex: 1 }}>
+              {/* Theme Toggle */}
+              {/* <View style={{ alignItems: "center", margin: 10 }}>
               <Text style={{ color: theme.colors.primary }}>
                 {isDarkMode ? "Dark Mode" : "Light Mode"}
               </Text>
               <Switch value={isDarkMode} onValueChange={toggleTheme} />
             </View> */}
-            {/* Main App Stack */}
-            <AudioPlayerProvider>
-              <RootStack />
-            </AudioPlayerProvider>
-          </View>
-        </NavigationContainer>
-      </PaperProvider>
+              {/* Main App Stack */}
+              <AudioPlayerProvider>
+                <RootStack />
+              </AudioPlayerProvider>
+            </View>
+          </NavigationContainer>
+        </PaperProvider>
+      </SafeAreaView>
     </SafeAreaProvider>
   );
 };
