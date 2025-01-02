@@ -2,6 +2,7 @@ import React from "react";
 import { View, Button, Text } from "react-native";
 import { useAudioPlayer } from "../context/AudioPlayerContext";
 import { Button as PaperButton } from "react-native-paper";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 interface AudioPlayerProps {
   uri: string;
   id: string;
@@ -22,7 +23,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ uri, id, title }) => {
 
   return (
     <View style={{ padding: 20 }}>
-      <Text>{title || "Audio Player"}</Text>
+      <Text style={{
+        textAlign: 'center',
+        marginBottom: wp(5),
+      }}>{title || "Audio File"}</Text>
       {isLoading && activeSoundId === id ? (
         <Text>Loading...</Text>
       ) : (

@@ -73,7 +73,7 @@ const StoryScreen = ({ route }) => {
         <AudioPlayer
           uri={story.story_audio}
           id={story.title} // Use the question ID to identify the audio
-          title={`${story.title} Audioplayer`} // Optional title
+          title={`${story.title} Audio File`} // Optional title
         />
 
         {/* MAIN STORY TEXT */}

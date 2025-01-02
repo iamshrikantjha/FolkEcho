@@ -131,7 +131,7 @@ const PaperBottomTabs = () => {
           },
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Bookmarks"
         component={BookmarksScreen}
         options={{
@@ -140,7 +140,7 @@ const PaperBottomTabs = () => {
             return <Icon name="bookmark" size={size} color={color} />;
           },
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Feedback"
         component={FeedbackScreen}
