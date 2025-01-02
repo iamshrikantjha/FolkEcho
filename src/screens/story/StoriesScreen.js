@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Image, Pressable } from "react-native";
 import { Appbar, Avatar, Button, Card, TextInput } from "react-native-paper";
 import React, { useState, useEffect } from "react";
 import {
@@ -6,13 +6,16 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { fetchStoriesForState } from "../../config/firebaseConfig";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
 const StoryCard = ({ item }) => {
   const navigation = useNavigation();
+  const route = useRoute();
+  const { state_id } = route.params;
+
 
   const story_id = item.id;
   const story_name = item.title;
@@ -20,6 +23,10 @@ const StoryCard = ({ item }) => {
   const story_image = item.image;
 
   return (
+    <Pressable onPress={() => navigation.navigate('StoryScreen', {
+      story_id: story_id,
+      state_id: state_id
+    })}>
     <Card style={{
       marginHorizontal: wp(5),
       paddingHorizontal: wp(3),
@@ -44,6 +51,7 @@ const StoryCard = ({ item }) => {
         <Button>Read Now</Button>
       </Card.Actions>
     </Card>
+    </Pressable>
   );
 };
 

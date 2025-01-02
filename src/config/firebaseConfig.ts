@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, doc, getDoc } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -67,7 +67,32 @@ const fetchStoriesForState = async (stateId) => {
   }
 };
 
+// Fetch a specific story by its ID
+const fetchStoryById = async (stateId, storyId) => {
+  try {
+    const storyRef = doc(db, `states/${stateId}/stories`, storyId);
+    const storyDoc = await getDoc(storyRef);
+
+    if (storyDoc.exists()) {
+      const story = {
+        id: storyDoc.id,
+        ...storyDoc.data(),
+      };
+      console.log(`Story for state ${stateId}:`, story);
+      return story;
+    } else {
+      console.log("No such story!");
+      return null;
+    }
+  } catch (error) {
+    console.error(`Error fetching story with ID ${storyId}:`, error.message);
+    throw error;
+  }
+};
+
+
 export {
   fetchAllStates,
-  fetchStoriesForState
+  fetchStoriesForState,
+  fetchStoryById
 }

@@ -1,18 +1,42 @@
 import { View, StyleSheet, Image, ScrollView } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { Appbar, Button, TextInput, Text } from "react-native-paper";
+import { fetchStoryById } from "../../config/firebaseConfig";
 
-const StoryScreen = () => {
+const StoryScreen = ({ route }) => {
+  const { story_id, state_id } = route.params;
+  console.log("State Id ", story_id);
+
+  const [story, setStory] = useState([]);
+
+  useEffect(() => {
+    try {
+      fetchStoryById(state_id, story_id).then((data) => {
+        console.log('the data ', data.title);
+        setStory(data);
+        // setStates(data);
+      }).then(() => {
+        console.log(story);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    return () => {};
+  }, []);
+
   return (
     <>
       <Appbar.Header
-        style={{
-          // marginBottom: 10,
-        }}
+        style={
+          {
+            // marginBottom: 10,
+          }
+        }
       >
         <Appbar.BackAction onPress={() => {}} />
         <Appbar.Content title="Story" />
@@ -25,7 +49,7 @@ const StoryScreen = () => {
         <View style={styles.coverImage}>
           <Image
             source={{
-              uri: `https://i.pinimg.com/originals/80/ae/d6/80aed6c86934b5cbbd5bcb2502ea5acc.jpg`,
+              uri: story?.image || `https://i.pinimg.com/originals/80/ae/d6/80aed6c86934b5cbbd5bcb2502ea5acc.jpg`,
             }}
             style={styles.coverImage}
           />
@@ -37,7 +61,7 @@ const StoryScreen = () => {
               fontSize: 25,
             }}
           >
-            Dr. Raman
+            { story.title || 'N/A TITLE' }
           </Text>
         </View>
 
@@ -50,16 +74,9 @@ const StoryScreen = () => {
               textAlign: "center",
             }}
           >
-            The story is about friendship, fear, relationship, unreliability,
-            and honesty. It’s about a doctor named Dr. Raman who believes that
-            lies can’t save the life of a patient and as it is traditional in a
-            profession of a doctor. {`\n`}
-            {`\n`} He should never lie to the patient means if someone is about
-            to die then a doctor should tell him the truth. One day, he comes to
-            know about his childhood friend, Gopal. They both knew each other
-            for forty years.{`\n`}
-            {`\n`} They met occasionally as both were busy with their work and
-            families.
+            {
+              story.body || 'N/A CONTENT'
+            }
           </Text>
         </View>
       </ScrollView>
